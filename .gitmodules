@@ -1,0 +1,3 @@
+[submodule "MyGameEngine/MyGameEngine/MyGameEngine/vendor/spdlog"]
+	path = MyGameEngine/MyGameEngine/MyGameEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
