@@ -3,7 +3,7 @@
 #include "Core.h"
 #include "spdlog/spdlog.h"
 
-
+//This is a simple logging system for game engine that has the both logger for engine inside and client.
 namespace MyGameEngine
 {
 	class MYENGINE_API Log
