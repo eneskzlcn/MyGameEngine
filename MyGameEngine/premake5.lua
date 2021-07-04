@@ -26,6 +26,7 @@ project "MyGameEngine"
     includedirs
     {
         "MyGameEngine/MyGameEngine/vendor/spdlog/include"
+        "MyGameEntine/src"
     }
 
     filter "system:windows"
