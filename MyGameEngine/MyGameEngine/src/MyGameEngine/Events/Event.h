@@ -2,8 +2,6 @@
 #define EVENT_H
 
 #include "MyGameEngine/Core.h"
-#include <string>
-#include <functional>
 
 namespace MyGameEngine
 {
@@ -13,7 +11,7 @@ namespace MyGameEngine
 		WINDOW_CLOSED, WINDOW_RESIZED, WINDOW_FOCUSED, WINDOW_FOCUS_LOST, WINDOW_MOVED,
 		APP_TICK, APP_UPDATE, APP_RENDER,
 		KEY_PRESSED, KEY_RELEASED,
-		MOUSE_BUTTON_PRESSED, MOUSE_BUTTON_RELEASED, MOUSE_MOVED, MOUSE_SCROLLED
+		MOUSE_BUTTON_PRESSED, MOUSE_BUTTON_RELEASED, MOUSE_HAS_MOVED, MOUSE_SCROLLED
 	};
 	//For controlling the category of the events with bitmasks. 
 	enum EventCategory

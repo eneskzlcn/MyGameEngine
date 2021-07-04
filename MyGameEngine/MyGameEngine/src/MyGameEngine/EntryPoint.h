@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef HZ_PLATFORM_WINDOWS
+#ifdef MYENG_PLATFORM_WINDOWS
 //start point of application. This must be in the game engine side. Run the application is controlling from here.
 extern MyGameEngine::Application* MyGameEngine::CreateApplication();
 int main(int argc, char ** argv)

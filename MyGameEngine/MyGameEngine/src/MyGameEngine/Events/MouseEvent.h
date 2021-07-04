@@ -21,7 +21,7 @@ namespace MyGameEngine
 			ss << "MouseMovedEvent: ( " << m_PosX << "," << m_PosY << " )";
 			return ss.str();
 		}
-		EVENT_CLASS_TYPE(MOUSE_MOVED)
+		EVENT_CLASS_TYPE(MOUSE_HAS_MOVED)
 		EVENT_CLASS_CATEGORY(EVENT_CATEGORY_INPUT | EVENT_CATEGORY_MOUSE)
 
 	private:

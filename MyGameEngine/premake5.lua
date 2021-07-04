@@ -17,6 +17,9 @@ project "MyGameEngine"
     targetdir ("bin/" ..outputdir.. "/%{prj.name}")
     objdir ("bin-int/" ..outputdir.. "/%{prj.name}")
 
+    pchheader "myengpch.h"
+    pchsource "MyGameEngine/src/myengpch.cpp"
+    
     files
     {
         "%{prj.name}/src/**.h",
@@ -36,8 +39,8 @@ project "MyGameEngine"
     
     defines
     {
-        "HZ_PLATFORM_WINDOWS",
-        "HZ_BUILD_DLL"
+        "MYENG_PLATFORM_WINDOWS",
+        "MYENG_BUILD_DLL"
     }
 
     postbuildcommands
@@ -85,7 +88,7 @@ project "Sandbox"
     
     defines
     {
-        "HZ_PLATFORM_WINDOWS"
+        "MYENG_PLATFORM_WINDOWS"
     }
     links
     {

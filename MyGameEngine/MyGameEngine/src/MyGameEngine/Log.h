@@ -4,6 +4,7 @@
 #include "spdlog/spdlog.h"
 #include "spdlog\fmt\ostr.h"
 
+
 //This is a simple logging system for game engine that has the both logger for engine inside and client.
 namespace MyGameEngine
 {
