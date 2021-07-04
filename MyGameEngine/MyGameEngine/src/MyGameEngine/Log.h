@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include "spdlog\fmt\ostr.h"
 
 //This is a simple logging system for game engine that has the both logger for engine inside and client.
 namespace MyGameEngine
@@ -13,7 +14,7 @@ namespace MyGameEngine
 		static void Init();
 		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
 		inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
-
+		
 	private:
 
 		static std::shared_ptr<spdlog::logger> s_CoreLogger;
@@ -29,7 +30,7 @@ namespace MyGameEngine
 #define MYENG_CORE_INFO(...)		::MyGameEngine::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define MYENG_CORE_TRACE(...)		::MyGameEngine::Log::GetCoreLogger()->trace(__VA_ARGS__)
 #define MYENG_CORE_WARN(...)		::MyGameEngine::Log::GetCoreLogger()->warn(__VA_ARGS__)
-
+#define MYENG_CORE_FATAL(...)		::MyGameEngine::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client Log Macros
 
@@ -37,3 +38,4 @@ namespace MyGameEngine
 #define MYENG_INFO(...)				::MyGameEngine::Log::GetClientLogger()->info(__VA_ARGS__)
 #define MYENG_TRACE(...)			::MyGameEngine::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define MYENG_WARN(...)				::MyGameEngine::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define MYENG_FATAL(...)			::MyGameEngine::Log::GetClientLogger()->critical(__VA_ARGS__)
