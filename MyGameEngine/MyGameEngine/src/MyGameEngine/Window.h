@@ -15,7 +15,7 @@ namespace MyGameEngine
 				:Title(title), Width(width), Height(height) {}
 		
 	};
-
+	// it is an interface representing a desktop system based window
 	class MYENGINE_API Window
 	{
 	public:
@@ -26,7 +26,7 @@ namespace MyGameEngine
 		virtual unsigned int GetHeight() = 0;
 
 		virtual bool IsVSync() const = 0;
-		virtual void SetVSync(bool enabled) const = 0;
+		virtual void SetVSync(bool enabled) = 0;
 		virtual void SetEventCallBackFunc(const EventCallbackFunction& callback) = 0;
 
 		static Window* Create(const WindowProperties& w_properties = WindowProperties());

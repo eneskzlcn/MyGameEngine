@@ -12,7 +12,7 @@ namespace MyGameEngine
 {
 	Application::Application()
 	{
-
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -23,7 +23,10 @@ namespace MyGameEngine
 	void Application::Run()
 	{
 		
-		while (true);
+		while (IsAppRunning)
+		{
+			m_Window->OnUpdate();
+		}
 	}
 
 

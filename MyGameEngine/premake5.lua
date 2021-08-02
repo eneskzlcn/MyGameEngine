@@ -37,7 +37,7 @@ project "MyGameEngine"
     {
         "MyGameEngine/MyGameEngine/vendor/spdlog/include",
         "MyGameEngine/src",
-         "{IncludeDir.GLFW}"
+         "%{IncludeDir.GLFW}"
     }
 
     links
@@ -63,7 +63,10 @@ project "MyGameEngine"
     }
     
     filter "configurations:Debug"
-        defines "MY_ENG_DEBUG"
+        defines 
+        {
+        "MY_ENG_DEBUG","MYENG_ENABLE_ASSERTS"  
+        }
         symbols "On"
 
     filter "configurations:Release"
