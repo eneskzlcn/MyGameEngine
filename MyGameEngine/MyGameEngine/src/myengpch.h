@@ -12,6 +12,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "MyGameEngine/Log.h"
 
 #ifdef MYENG_PLATFORM_WINDOWS
 	#include <Windows.h>

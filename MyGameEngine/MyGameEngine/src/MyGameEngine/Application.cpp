@@ -9,10 +9,13 @@
 
 namespace MyGameEngine
 
+#define BIND_EVENT_FN(x) std::bind(&Application::x,this,std::placeholders::_1)
+
 {
 	Application::Application()
 	{
 		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window->SetEventCallBackFunc(BIND_EVENT_FN(OnEvent));
 	}
 
 	Application::~Application()
@@ -29,5 +32,10 @@ namespace MyGameEngine
 		}
 	}
 
+
+	void Application::OnEvent(Event& e)
+	{
+		MYENG_CORE_INFO("{0}",e);
+	}
 
 }

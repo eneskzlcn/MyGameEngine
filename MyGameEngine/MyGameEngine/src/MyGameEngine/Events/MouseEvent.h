@@ -9,7 +9,7 @@ namespace MyGameEngine
 	class MYENGINE_API MouseMovedEvent : public Event
 	{
 	public:
-		MouseMovedEvent(int pos_x, int pos_y)
+		MouseMovedEvent(float pos_x, float pos_y)
 			: m_PosX(pos_x), m_PosY(pos_y) {}
 
 		inline float GetX() { return m_PosX; }

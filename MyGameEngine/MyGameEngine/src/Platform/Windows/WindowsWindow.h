@@ -16,10 +16,10 @@ namespace MyGameEngine
 		void OnUpdate() override;
 
 
-		unsigned int GetWidth() { return m_Data.m_Width; }
+		unsigned int GetWidth() { return m_Data.Width; }
 
 
-		unsigned int GetHeight() { return m_Data.m_Height; }
+		unsigned int GetHeight() { return m_Data.Height; }
 
 
 		bool IsVSync() const override;
@@ -42,7 +42,7 @@ namespace MyGameEngine
 		struct WindowData
 		{
 			std::string Title;
-			unsigned int m_Width, m_Height;
+			unsigned int Width, Height;
 			bool VSync;
 
 			EventCallbackFunction EventCallback;
