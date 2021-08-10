@@ -3,9 +3,9 @@
 
 #include "MyGameEngine\Events\KeyEvent.h"
 #include "MyGameEngine\Events\Event.h"
-#include "MyGameEngine\Events\ApplicationEvent.h"
 #include "MyGameEngine\Events\MouseEvent.h"
 #include "Log.h"
+#include <GLFW/glfw3.h>
 
 namespace MyGameEngine
 
@@ -28,6 +28,13 @@ namespace MyGameEngine
 		
 		while (IsAppRunning)
 		{
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (Layer* layer : m_LayerStack)
+			{
+				layer->OnUpdate();
+			}
 			m_Window->OnUpdate();
 		}
 	}
@@ -35,7 +42,35 @@ namespace MyGameEngine
 
 	void Application::OnEvent(Event& e)
 	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowClosedEvent>(BIND_EVENT_FN(OnWindowClosed));
 		MYENG_CORE_INFO("{0}",e);
+
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
+		{
+			(*--it)->OnEvent(e);
+			if (e.IsHandled)
+				break;
+		}
 	}
 
+
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* layer)
+	{
+		m_LayerStack.PushOverlay(layer);
+	}
+
+	bool Application::OnWindowClosed(WindowClosedEvent& e)
+	{
+		IsAppRunning = false;
+		return true;
+	}
 }
+
+
+

@@ -67,16 +67,18 @@ project "MyGameEngine"
         {
         "MY_ENG_DEBUG","MYENG_ENABLE_ASSERTS"  
         }
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "MY_ENG_RELEASE"
+        buildoptions "/MD"
         optimize "On"
-    
+        
     filter "configurations:Dist"
         defines "MY_ENG_DIST"
+        buildoptions "/MD"
         optimize "On"
-    
 
 project "Sandbox"
     location "Sandbox"
@@ -114,13 +116,16 @@ project "Sandbox"
     
     filter "configurations:Debug"
         defines "MY_ENG_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
     
     filter "configurations:Release"
         defines "MY_ENG_RELEASE"
+        buildoptions "/MD"
         optimize "On"
     
     filter "configurations:Dist"
         defines "MY_ENG_DIST"
+        buildoptions "/MD"
         optimize "On"
     

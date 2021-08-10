@@ -45,7 +45,6 @@ namespace MyGameEngine
 		{
 			return GetCategoryFlags() & category;
 		}
-	protected:
 		bool IsHandled = false;
 	};
 
