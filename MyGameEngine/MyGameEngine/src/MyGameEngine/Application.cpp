@@ -5,7 +5,7 @@
 #include "MyGameEngine\Events\Event.h"
 #include "MyGameEngine\Events\MouseEvent.h"
 #include "Log.h"
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace MyGameEngine
 

@@ -4,7 +4,7 @@
 #include "MyGameEngine/Events/ApplicationEvent.h"
 #include "MyGameEngine/Events/KeyEvent.h"
 #include "MyGameEngine/Events/MouseEvent.h"
-
+#include <glad/glad.h>
 
 namespace MyGameEngine
 {
@@ -67,6 +67,9 @@ namespace MyGameEngine
 		}
 		m_Window = glfwCreateWindow((int)properties.Width, (int)properties.Height, properties.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+
+		int status = gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
+		MYENG_CORE_ASSERT(status, "Failed to initialize Glad!");
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 

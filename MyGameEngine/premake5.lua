@@ -12,8 +12,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "vendor/GLFW/include"
+IncludeDir["Glad"] = "vendor/GLAD/include"
 
 include "vendor/GLFW"
+include "vendor/Glad"
 
 project "MyGameEngine"
 
@@ -37,12 +39,14 @@ project "MyGameEngine"
     {
         "MyGameEngine/MyGameEngine/vendor/spdlog/include",
         "MyGameEngine/src",
-         "%{IncludeDir.GLFW}"
+         "%{IncludeDir.GLFW}",
+         "%{IncludeDir.Glad}"
     }
 
     links
     {
         "GLFW",
+        "Glad",
         "opengl32.lib"
     }
 
@@ -54,7 +58,8 @@ project "MyGameEngine"
     defines
     {
         "MYENG_PLATFORM_WINDOWS",
-        "MYENG_BUILD_DLL"
+        "MYENG_BUILD_DLL",
+        "GLFW_INCLUDE_NONE"
     }
 
     postbuildcommands
